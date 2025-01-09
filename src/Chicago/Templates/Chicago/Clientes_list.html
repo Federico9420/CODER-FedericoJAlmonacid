@@ -1,0 +1,11 @@
+{% extends 'Chicago/base.html' %}
+
+{% block contenido %}
+    <h1>Cartera de Clientes</h1>
+    <a href="{% url Chicago:Clientes_create%}"><button>Registrar Cliente</button></a>
+    <ul>
+        {% for objects in objects_list %}
+            <p>{{ objects.nombre }} | {{ objects.email }} | {{ objects.telefono }}</p>
+        {% endfor %}
+    </ul>
+{% endblock contenido %}    

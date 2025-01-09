@@ -25,9 +25,7 @@ class Venta(models.Model):
     total = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
 
     def save(self, *args, **kwargs):
-        # Calcular el total automáticamente
         self.total = self.producto.precio * self.cantidad
-        # Actualizar stock del producto
         self.producto.stock -= self.cantidad
         self.producto.save()
         super().save(*args, **kwargs)

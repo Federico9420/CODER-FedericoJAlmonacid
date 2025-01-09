@@ -1,0 +1,11 @@
+{% extends 'Chicago/Base.html' %}
+
+{% block contenido %}
+<h1>Cargar Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cargar Venta</button>
+    </form>
+    
+{% endblock contenido %}

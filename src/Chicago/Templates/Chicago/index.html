@@ -2,4 +2,7 @@
 
 {% block contenido %}
     <h1>Bienvenidos!</h1>
+    <a href="{% url 'Chicago:Clientes_list' %}">Mostrar cartera de clientes</a>
+    <a href="{% url 'Chicago:Productos_list' %}">Mostrar catalogo de productos</a>
+    <a href="{% url 'Chicago:Ventas_list' %}">Mostrar historial de ventas</a>
 {% endblock contenido %}

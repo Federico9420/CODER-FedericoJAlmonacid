@@ -1,0 +1,10 @@
+{% extends 'Chicago/Base.html' %}
+
+{% block contenido %}
+<h1>Crear Producto</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cargar Producto</button>
+    </form>    
+{% endblock contenido %}
