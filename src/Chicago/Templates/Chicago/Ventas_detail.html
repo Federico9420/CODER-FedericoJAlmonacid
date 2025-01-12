@@ -1,0 +1,15 @@
+{% extends 'Chicago/Base.html' %}
+
+{% block contenido %}
+   
+    <h1>Ventas: Detalles</h1>
+        <ul>
+            <li><strong>Cliente: </strong> {{ object.Cliente}}</li>
+            <li><strong>Producto: </strong> {{ object.Producto}}</li>
+            <li><strong>Cantidad: </strong> {{ object.Cantidad}}</li>
+            <li><strong>Fecha: </strong> {{ object.Fecha}}</li>
+            <li><strong>Total: </strong> {{ object.Total}}</li>
+        </ul>
+    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
+    
+{% endblock contenido %}

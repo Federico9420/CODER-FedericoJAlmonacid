@@ -1,11 +1,17 @@
 {% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
+    {% if form.instance.pk %}
+        <h1>Clientes: Modificación de datos personales</h1>
+    {% else %}
+        <h1>Clientes: Nuevo registro</h1>
+    {% endif %}
 <h1>Crear Cliente</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Cargar Cliente</button>
     </form>
+    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
     
 {% endblock contenido %}

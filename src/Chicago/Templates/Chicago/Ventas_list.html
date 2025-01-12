@@ -3,10 +3,38 @@
 {% block contenido %}
     <h1>Registro de ventas</h1>
     <a href="{% url 'Chicago:Ventas_Create' %}"><button>Cargar Venta</button></a>
-    <ul>
-        {% for objects in objects_list %}
-            <p>{{ objects.cliente }} | {{ objects.producto }} | {{ objects.cantidad }} | {{ objects.fecha }} | ${{ objects.total }}</p>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
-{% endblock contenido %}    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in objects_list %}
+                <tr>
+                    <td>{{ venta.cliente }}</td>
+                    <td>{{ venta.producto }}</td>
+                    <td>{{ venta.cantidad }}</td>
+                    <td>{{ venta.fecha }}</td>
+                    <td>${{ venta.total }}</td>
+                    <td>
+                        <a href="{% url 'Chicago:Ventas_detail' venta.id%}"><button>Ver</button></a>                  
+                        <a href="{% url 'Chicago:Ventas_update' venta.id %}"><button>Editar</button></a>
+                        <a href="{% url 'Chicago:Ventas_delete' venta.id %}"><button>Eliminar</button></a>
+                    </td>                    
+                </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay datos disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
+{% endblock contenido %}

@@ -18,6 +18,9 @@
                     <td>{{ cliente.nombre }}</td>
                     <td>{{ cliente.email }}</td>
                     <td>{{ cliente.telefono }}</td>
+                    <td>
+                        <a href="{% url 'Chicago:Clientes_update' cliente.id %}"><button>Editar</button></a>
+                    </td>
                 </tr>
             {% empty %}
             <tr>

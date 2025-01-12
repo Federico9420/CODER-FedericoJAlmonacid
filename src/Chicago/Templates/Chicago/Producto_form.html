@@ -1,10 +1,16 @@
 {% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
+    {% if form.instance.pk %}
+        <h1>Productos: Panel de edición</h1>
+    {% else %}
+        <h1>Productos: Registro de productos</h1>
+    {% endif %}
 <h1>Crear Producto</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Cargar Producto</button>
     </form>    
+    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
 {% endblock contenido %}

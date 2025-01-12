@@ -1,0 +1,13 @@
+{% extends 'Chicago/Base.html' %}
+
+{% block contenido %}
+   
+    <h1>Ventas: Eliminación de registro</h1>
+    <p>¿Estas seguro que queres eliminar "{{ object }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Si, confirmo</button>
+    </form>
+    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
+    
+{% endblock contenido %}

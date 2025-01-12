@@ -3,10 +3,34 @@
 {% block contenido %}
     <h1>Lista de Productos</h1>
     <a href="{% url 'Chicago:Producto_create' %}"><button>Cargar Producto</button></a>
-    <ul>
-        {% for objects in objects_list %}
-            <p>{{ objects.nombre }} | {{ objects.categoria }} | {{ objects.precio }} | {{ objects.stock }}</p>
-        {% endfor %}
-    </ul>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in objects_list %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.categoria }}</td>
+                    <td>${{ producto.precio }}</td>
+                    <td>{{ producto.stock }}</td>
+                    <td>
+                        <a href="{% url 'Chicago:Producto_update' producto.id %}"><button>Editar</button></a>
+                    </td>
+                </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay datos disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
     <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
-{% endblock contenido %}    
+{% endblock contenido %}
