@@ -2,10 +2,30 @@
 
 {% block contenido %}
     <h1>Cartera de Clientes</h1>
-    <a href="{% url Chicago:Clientes_create%}"><button>Registrar Cliente</button></a>
-    <ul>
-        {% for objects in objects_list %}
-            <p>{{ objects.nombre }} | {{ objects.email }} | {{ objects.telefono }}</p>
-        {% endfor %}
-    </ul>
-{% endblock contenido %}    
+    <a href="{% url 'Chicago:Clientes_create' %}"><button>Registrar Cliente</button></a>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in objects_list %}
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.email }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No hay datos disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
+{% endblock contenido %}

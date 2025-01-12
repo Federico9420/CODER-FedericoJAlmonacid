@@ -2,10 +2,11 @@
 
 {% block contenido %}
     <h1>Registro de ventas</h1>
-    <a href="{% url Chicago:Ventas_Create%}"><button>Cargar Venta</button></a>
+    <a href="{% url 'Chicago:Ventas_Create' %}"><button>Cargar Venta</button></a>
     <ul>
         {% for objects in objects_list %}
-            <p>{{ objects.cliente }} | {{ objects.producto }} | {{ objects.cantidad }} | {{ objects.fecha }} | {{ objects.total }}</p>
+            <p>{{ objects.cliente }} | {{ objects.producto }} | {{ objects.cantidad }} | {{ objects.fecha }} | ${{ objects.total }}</p>
         {% endfor %}
     </ul>
+    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
 {% endblock contenido %}    

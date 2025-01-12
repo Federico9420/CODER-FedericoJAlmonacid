@@ -2,10 +2,11 @@
 
 {% block contenido %}
     <h1>Lista de Productos</h1>
-    <a href="{% url Chicago:Producto_create%}"><button>Cargar Producto</button></a>
+    <a href="{% url 'Chicago:Producto_create' %}"><button>Cargar Producto</button></a>
     <ul>
         {% for objects in objects_list %}
             <p>{{ objects.nombre }} | {{ objects.categoria }} | {{ objects.precio }} | {{ objects.stock }}</p>
         {% endfor %}
     </ul>
+    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
 {% endblock contenido %}    
