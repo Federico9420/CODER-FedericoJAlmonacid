@@ -2,6 +2,12 @@
 
 {% block contenido %}
     <h1>Lista de Productos</h1>
+
+    <form method="get">
+        <input type="text" name="busqueda" placeholder="Buscar...">
+
+    </form>
+
     <a href="{% url 'Chicago:Productos_create' %}"><button>Cargar Producto</button></a>
     <table border="1">
         <thead>
@@ -14,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for producto in objects_list %}
+            {% for producto in object_list %}
                 <tr>
                     <td>{{ producto.nombre }}</td>
                     <td>{{ producto.categoria }}</td>

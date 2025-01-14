@@ -25,6 +25,7 @@ urlpatterns += [
     path("Productos/confirm/delete/<int:pk>", Productos.ProductoDeleteView.as_view(), name="Productos_delete"),
 ]
 
+
 urlpatterns += [
     path("Ventas/list", Ventas.Ventas_list, name="Ventas_list"),
     path("Ventas/create/", Ventas.Ventas_create, name="Ventas_create"), 

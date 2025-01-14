@@ -2,6 +2,12 @@
 
 {% block contenido %}
     <h1>Cartera de Clientes</h1>
+
+    <form action="" method="get">
+        <input type="text" name="busqueda" placeholder="Buscar...">
+
+    </form>
+
     <a href="{% url 'Chicago:Clientes_create' %}"><button>Registrar Cliente</button></a>
     
     <table border="1">
@@ -13,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for cliente in objects_list %}
+            {% for cliente in object_list %}
                 <tr>
                     <td>{{ cliente.nombre }}</td>
                     <td>{{ cliente.email }}</td>

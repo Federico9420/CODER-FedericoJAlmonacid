@@ -1,12 +1,12 @@
 
+{% extends 'Chicago/base.html' %}
 {% block contenido %}
-   
     <h1>Productos: Modificación de stock</h1>
-    <p>¿Estas seguro que queres eliminar "{{ object }}?</p>
+    <h1>¿Estás seguro que deseas eliminar "{{ object }}"?</h1>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Si, confirmo</button>
+        <button type="submit">Sí, eliminar</button>
     </form>
     <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
+    <a href="{% url 'Chicago:Productos_list' %}"><button>Volver</button></a>
 {% endblock contenido %}

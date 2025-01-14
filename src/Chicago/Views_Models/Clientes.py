@@ -6,10 +6,20 @@ from ..forms import ClientesForm
 
 from django.http import HttpResponse, HttpRequest
 
+
+###
+
+
 def Clientes_list(request: HttpRequest) -> HttpResponse:
-    query = Cliente.objects.all()
-    context = {"objects_list": query}
-    return render(request, 'Chicago/Clientes_list.html', context)
+    busqueda = request.GET.get("busqueda")
+    if busqueda:
+        query = Cliente.objects.filter(nombre__icontains=busqueda)
+    else:
+         query = Cliente.objects.all()
+    return render(request, 'Chicago/Clientes_list.html', {'object_list': query})
+
+
+###
 
 def Clientes_create(request: HttpRequest) -> HttpResponse:
     if request.method == "GET":
@@ -23,6 +33,9 @@ def Clientes_create(request: HttpRequest) -> HttpResponse:
         return render(request, "Chicago/Clientes_form.html", {"form": form})
     return render(request, "Chicago/Clientes_form.html", {"form": ClientesForm()})
 
+
+### CLIENTES - UPDATE
+
 def Clientes_update(request: HttpRequest, pk: int) -> HttpResponse:
     query = Cliente.objects.get(id=pk)    
     if request.method == "GET":
@@ -35,9 +48,15 @@ def Clientes_update(request: HttpRequest, pk: int) -> HttpResponse:
             return redirect("Chicago:Clientes_list")
     return render(request, "Chicago/Clientes_form.html", {"form": form})
 
+
+###  CLIENTES - DETAIL
+
 def Clientes_detail(request: HttpRequest, pk: int) -> HttpResponse:
     query = Cliente.objects.get(id=pk)
     return render(request, "Chicago/Clientes_detail.html", {"object": query})
+
+
+### CLIENTES - DELETE
 
 def Clientes_delete (request: HttpRequest, pk: int) -> HttpResponse:
     query = Cliente.objects.get(id=pk)
