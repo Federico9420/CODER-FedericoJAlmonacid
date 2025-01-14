@@ -1,9 +1,11 @@
+
 {% extends 'Chicago/base.html' %}
 
 {% block contenido %}
     <h1>Acerca de mi</h1>
-    <p> Esta herramiento te permitira llevar a cabo la gestion de tu tienda</p>
+    <p> Esta herramienta te permitira llevar a cabo la gestion de tu tienda</p>
     <p>Vas a poder registrar desde los movimientos de tu stock, actualizarlo con cada venta y llevar un registro de las mismas</p>
     <p>Ante cualquier consulta podes comunicarte con nuestro servicio en linea al +5492964-628695</p>
-    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
+    <br>
+    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
 {% endblock contenido %}

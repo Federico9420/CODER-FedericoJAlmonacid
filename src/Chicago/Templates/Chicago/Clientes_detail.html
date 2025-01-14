@@ -1,0 +1,15 @@
+{% extends 'Chicago/Base.html' %}
+
+{% block contenido %}
+   
+    <h1>Ventas: Detalles</h1>
+        <ul>
+            <li><strong>nombre: </strong> {{ object.nombre}}</li>
+            <li><strong>email: </strong> {{ object.email}}</li>
+            <li><strong>telefono: </strong> {{ object.telefono}}</li>
+            
+        </ul>
+        <br>
+    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
+    
+{% endblock contenido %}

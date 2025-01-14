@@ -2,8 +2,8 @@
 
 {% block contenido %}
     <h1>Bienvenido al CRM de CHICAGO!</h1>
-    <a href="{% url 'Chicago:about' %}">Introducción</a>
-    <a href="{% url 'Chicago:Clientes_list' %}">Mostrar cartera de clientes</a>
-    <a href="{% url 'Chicago:Productos_list' %}">Mostrar catalogo de productos</a>
-    <a href="{% url 'Chicago:Ventas_list' %}">Mostrar historial de ventas</a>
+    <a href="{% url 'Chicago:about' %}"><button>Introducción</button></a>
+    <a href="{% url 'Chicago:Clientes_list' %}"><button>Mostrar cartera de clientes</button></a>
+    <a href="{% url 'Chicago:Productos_list' %}"><button>Mostrar catalogo de productos</button></a>
+    <a href="{% url 'Chicago:Ventas_list' %}"><button>Mostrar historial de ventas</button></a>
 {% endblock contenido %}

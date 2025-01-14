@@ -2,7 +2,7 @@
 
 {% block contenido %}
     <h1>Registro de ventas</h1>
-    <a href="{% url 'Chicago:Ventas_Create' %}"><button>Cargar Venta</button></a>
+    <a href="{% url 'Chicago:Ventas_create' %}"><button>Cargar Venta</button></a>
     <table border="1">
         <thead>
             <tr>
@@ -35,6 +35,6 @@
             {% endfor %}
         </tbody>
     </table>
-    
+    <br>
     <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
 {% endblock contenido %}

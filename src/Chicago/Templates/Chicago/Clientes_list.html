@@ -20,6 +20,7 @@
                     <td>{{ cliente.telefono }}</td>
                     <td>
                         <a href="{% url 'Chicago:Clientes_update' cliente.id %}"><button>Editar</button></a>
+                        <a href="{% url 'Chicago:Clientes_delete' cliente.id %}"><button>Eliminar</button></a>
                     </td>
                 </tr>
             {% empty %}
@@ -29,6 +30,6 @@
             {% endfor %}
         </tbody>
     </table>
-
-    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
+    <br>
+    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
 {% endblock contenido %}

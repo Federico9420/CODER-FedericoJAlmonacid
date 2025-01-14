@@ -1,8 +1,7 @@
-{% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
    
-    <h1>Ventas: Eliminación de registro</h1>
+    <h1>Clientes: Eliminación de registros</h1>
     <p>¿Estas seguro que queres eliminar "{{ object }}?</p>
     <form method="post">
         {% csrf_token %}

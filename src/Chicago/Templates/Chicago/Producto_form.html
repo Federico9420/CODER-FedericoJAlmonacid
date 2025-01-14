@@ -12,5 +12,7 @@
         {{ form.as_p }}
         <button type="submit">Cargar Producto</button>
     </form>    
-    <a href="{% url 'Chicago:index' %}">Volver al menú principal</a>
+    <br>
+    <a href="{% url 'Chicago:Productos_list' %}"><button>Volver</button></a>
+    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
 {% endblock contenido %}
