@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from Chicago.Views_Models import Ventas, Clientes, Productos
 from django.contrib.auth.views import LogoutView
+
 app_name = 'Chicago'
 
 urlpatterns = [
