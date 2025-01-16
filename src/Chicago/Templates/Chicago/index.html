@@ -5,32 +5,41 @@
     <h1>Bienvenido al CRM de CHICAGO!</h1>
     <div>
         {% if user.is_authenticated %}
-            <a href="{% url 'Chicago:index' %}"><button>Ir al menu principal</button></a>
-            <form action="{% url 'Chicago:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Cerrar Sesión</button>
-            </form>
+            <a href="{% url 'Chicago:index' %}">
+                <button>Ir al menú principal</button>
+                <button>Modificar Perfil</button>
+            </a>
             {% else %}
-            <a href="{% url 'Chicago:login' %}"><button>Iniciar Sesión</button></a>    
-        {% endif %}
-        <a href="{% url 'Chicago:login' %}"><button>Iniciar Sesión</button></a>
-        <a href="{% url 'Chicago:Clientes_list' %}"><button>Mostrar cartera de clientes</button></a>
-        <a href="{% url 'Chicago:Productos_list' %}"><button>Mostrar catalogo de productos</button></a>
-        <a href="{% url 'Chicago:Ventas_list' %}"><button>Mostrar historial de ventas</button></a>
-        <a href="{% url 'Chicago:about' %}"><button>About us</button></a>
-        <form action="{% url 'Chicago:logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Cerrar sesión</button> 
-        </form>
-        <a href="{% url 'Chicago:logout' %}"></a>
+            <a href="{% url 'Chicago:login' %}">
+                <button>Iniciar Sesión</button>
+            </a>
+            {% endif %}
+            <a href="{% url 'Chicago:Clientes_list' %}">
+                <button>Mostrar cartera de clientes</button>
+            </a>
+            <a href="{% url 'Chicago:Productos_list' %}">
+            <button>Mostrar catálogo de productos</button>
+        </a>
+        <a href="{% url 'Chicago:Ventas_list' %}">
+            <button>Mostrar historial de ventas</button>
+        </a>
+        <a href="{% url 'Chicago:about' %}">
+            <button>About us</button>
+        </a>
+    </a>
+    <form action="{% url 'Chicago:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Cerrar Sesión</button>
+    </form>
+    <a href="{% url 'Chicago:profile' %}">
     </div>
-    {% for mensaje in messages  %}
+
+    {% for mensaje in messages %}
     <p>{{ mensaje }}</p>
-        
     {% endfor %}
 
-{% comment  %}
-####################  <img src="{% static '' %}" alt="">
-{% endcomment %}
-
+    {% comment %}
+    ####################  
+    <img src="{% static '' %}" alt="">
+    {% endcomment %}
 {% endblock contenido %}

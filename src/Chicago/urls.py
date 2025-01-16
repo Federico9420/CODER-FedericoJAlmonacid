@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(template_name="Chicago/logout.html"), name= "logout"),
     path('register/', views.CustomRegisterView.as_view(), name= 'register'),
+    path('profile/', views.UpdateProfileView.as_view(), name= ('profile')),
 ]
 
 urlpatterns += [
