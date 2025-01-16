@@ -1,0 +1,12 @@
+{% extends 'Chicago/base.html' %}
+
+{% block contenido %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Iniciar sesion</button>
+    </form>
+    <p>
+        ¿No tienes una cuenta? <a href="#">Registrate aqui</a>
+    </p>
+{% endblock contenido %}

@@ -1,9 +1,22 @@
 {% extends 'Chicago/base.html' %}
+{% load static %}
 
 {% block contenido %}
     <h1>Bienvenido al CRM de CHICAGO!</h1>
-    <a href="{% url 'Chicago:about' %}"><button>Introducción</button></a>
-    <a href="{% url 'Chicago:Clientes_list' %}"><button>Mostrar cartera de clientes</button></a>
-    <a href="{% url 'Chicago:Productos_list' %}"><button>Mostrar catalogo de productos</button></a>
-    <a href="{% url 'Chicago:Ventas_list' %}"><button>Mostrar historial de ventas</button></a>
+    <div>
+        <a href="{% url 'Chicago:login' %}"><button>Iniciar Sesión</button></a>
+        <a href="{% url 'Chicago:Clientes_list' %}"><button>Mostrar cartera de clientes</button></a>
+        <a href="{% url 'Chicago:Productos_list' %}"><button>Mostrar catalogo de productos</button></a>
+        <a href="{% url 'Chicago:Ventas_list' %}"><button>Mostrar historial de ventas</button></a>
+        <a href="{% url 'Chicago:about' %}"><button>About us</button></a>
+    </div>
+    {% for mensaje in messages  %}
+    <p>{{ mensaje }}</p>
+        
+    {% endfor %}
+
+{% comment  %}
+####################  <img src="{% static '' %}" alt="">
+{% endcomment %}
+
 {% endblock contenido %}

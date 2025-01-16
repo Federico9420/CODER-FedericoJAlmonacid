@@ -7,3 +7,4 @@ def index(request: HttpRequest) -> HttpResponse:
 
 def about(request):
     return render(request, "Chicago/about.html")
+

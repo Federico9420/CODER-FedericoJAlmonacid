@@ -1,5 +1,5 @@
 from django import forms 
-
+from django.contrib.auth.forms import AuthenticationForm
 from .models import Cliente, Producto, Venta
 
 class ProductoForm(forms.ModelForm):
@@ -16,3 +16,7 @@ class ClientesForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = "__all__"
+
+class CustomAuthenticationForm(AuthenticationForm):
+    class Meta:
+        fields = ["username", "password"]
