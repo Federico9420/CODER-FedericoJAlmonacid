@@ -1,13 +1,14 @@
 from django.urls import path
 from . import views
 from Chicago.Views_Models import Ventas, Clientes, Productos
-
+from django.contrib.auth.views import LogoutView
 app_name = 'Chicago'
 
 urlpatterns = [
     path("", views.index, name="index"),
     path("about/", views.about, name="about"),
     path('login/', views.CustomLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(template_name="Chicago/logout.html"), name= "logout"),
     path('register/', views.CustomRegisterView.as_view(), name= 'register'),
 ]
 
