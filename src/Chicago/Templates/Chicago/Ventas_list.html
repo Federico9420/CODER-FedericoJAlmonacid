@@ -1,40 +1,52 @@
 {% extends 'Chicago/base.html' %}
 
 {% block contenido %}
-    <h1>Registro de ventas</h1>
-    <a href="{% url 'Chicago:Ventas_create' %}"><button>Cargar Venta</button></a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Cliente</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Fecha</th>
-                <th>Total</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for venta in objects_list %}
+<div class="container py-4">
+    <h1 class="text-center mb-4">Registro de Ventas</h1>
+    
+    <div class="d-flex justify-content-between mb-3">
+        <a href="{% url 'Chicago:Ventas_create' %}" class="btn btn-primary">Cargar Venta</a>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
                 <tr>
-                    <td>{{ venta.cliente }}</td>
-                    <td>{{ venta.producto }}</td>
-                    <td>{{ venta.cantidad }}</td>
-                    <td>{{ venta.fecha_venta }}</td>
-                    <td>${{ venta.precio_total }}</td>
-                    <td>
-                        <a href="{% url 'Chicago:Ventas_detail' venta.id%}"><button>Ver</button></a>                  
-                        <a href="{% url 'Chicago:Ventas_update' venta.id %}"><button>Editar</button></a>
-                        <a href="{% url 'Chicago:Ventas_delete' venta.id %}"><button>Eliminar</button></a>
-                    </td>                    
+                    <th>Cliente</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Acciones</th>
                 </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No hay datos disponibles.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
+            </thead>
+            <tbody>
+                {% for venta in objects_list %}
+                    <tr>
+                        <td>{{ venta.cliente }}</td>
+                        <td>{{ venta.producto }}</td>
+                        <td>{{ venta.cantidad }}</td>
+                        <td>{{ venta.fecha_venta }}</td>
+                        <td>${{ venta.precio_total }}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="{% url 'Chicago:Ventas_detail' venta.id %}" class="btn btn-info btn-sm">Ver</a>
+                                <a href="{% url 'Chicago:Ventas_update' venta.id %}" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="{% url 'Chicago:Ventas_delete' venta.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No hay datos disponibles.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="d-flex justify-content-start mt-3">
+        <a href="{% url 'Chicago:index' %}" class="btn btn-secondary">Volver al menú principal</a>
+    </div>
+</div>
 {% endblock contenido %}

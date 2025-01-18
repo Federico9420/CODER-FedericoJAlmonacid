@@ -1,12 +1,25 @@
 {% extends 'Chicago/base.html' %}
 
 {% block contenido %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Iniciar sesion</button>
-    </form>
-    <p>
-        ¿No tienes una cuenta? <a href="{% url 'Chicago:register' %}">Registrate aqui</a>
-    </p>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+            <h2 class="text-center mb-4">Iniciar sesión</h2>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group mb-3">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+            </form>
+
+            <p class="text-center mt-3">
+                ¿No tienes una cuenta? <a href="{% url 'Chicago:register' %}">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
 {% endblock contenido %}

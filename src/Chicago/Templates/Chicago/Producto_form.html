@@ -1,18 +1,27 @@
 {% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
-    {% if form.instance.pk %}
-        <h1>Productos: Panel de edición</h1>
-    {% else %}
-        <h1>Productos: Registro de productos</h1>
-    {% endif %}
-<h1>Crear Producto</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Cargar Producto</button>
-    </form>    
-    <br>
-    <a href="{% url 'Chicago:Productos_list' %}"><button>Volver</button></a>
-    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
+    <div class="container py-5">
+        <div class="card p-4 shadow-lg">
+            {% if form.instance.pk %}
+                <h3 class="mb-4 text-center">Productos: Panel de edición</h3>
+            {% else %}
+                <h3 class="mb-4 text-center">Productos: Registro de productos</h3>
+            {% endif %}
+            <h4 class="text-center mb-4">Crear Producto</h4>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-3">Cargar Producto</button>
+            </form>
+
+            <div class="d-flex justify-content-between">
+                <a href="{% url 'Chicago:Productos_list' %}" class="btn btn-secondary">Volver</a>
+                <a href="{% url 'Chicago:index' %}" class="btn btn-light">Volver al menú principal</a>
+            </div>
+        </div>
+    </div>
 {% endblock contenido %}

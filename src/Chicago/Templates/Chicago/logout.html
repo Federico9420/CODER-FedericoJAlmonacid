@@ -1,5 +1,13 @@
 {% extends 'Chicago/base.html' %}
+
 {% block contenido %}
-    <p>Has cerrado sesión</p>
-    <a href="{% url 'Chicago:index' %}"><button>Okey</button></a>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow-lg text-center" style="max-width: 400px; width: 100%;">
+            <h3 class="mb-4">Has cerrado sesión</h3>
+
+            <a href="{% url 'Chicago:index' %}" class="btn btn-primary w-100">
+                Okey
+            </a>
+        </div>
+    </div>
 {% endblock contenido %}

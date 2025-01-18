@@ -1,12 +1,17 @@
+{% extends 'Chicago/base.html' %}
 
 {% block contenido %}
-   
-    <h1>Clientes: Eliminación de registros</h1>
-    <p>¿Estas seguro que queres eliminar "{{ object }}?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Si, confirmo</button>
-    </form>
-    <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
+    <div class="container py-5">
+        <div class="card p-4 shadow-lg text-center">
+            <h3 class="mb-4 text-danger">Clientes: Eliminación de Registro</h3>
+            <p class="lead">¿Estás seguro de que deseas eliminar el cliente <strong>"{{ object }}"</strong>?</p>
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg">Sí, confirmo</button>
+            </form>
+            <div class="mt-4">
+                <a href="{% url 'Chicago:index' %}" class="btn btn-secondary btn-lg">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
 {% endblock contenido %}

@@ -1,43 +1,55 @@
 {% extends 'Chicago/base.html' %}
 
 {% block contenido %}
-    <h1>Lista de Productos</h1>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Lista de Productos</h1>
 
-    <form method="get">
-        <input type="text" name="busqueda" placeholder="Buscar...">
-
+    <!-- Formulario de búsqueda -->
+    <form method="get" class="mb-4 d-flex justify-content-between">
+        <input 
+            type="text" 
+            name="busqueda" 
+            class="form-control w-50" 
+            placeholder="Buscar...">
+        <a href="{% url 'Chicago:Productos_create' %}" class="btn btn-primary ms-3">Cargar Producto</a>
     </form>
 
-    <a href="{% url 'Chicago:Productos_create' %}"><button>Cargar Producto</button></a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for producto in object_list %}
+    <!-- Tabla de productos -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead class="table-dark">
                 <tr>
-                    <td>{{ producto.nombre }}</td>
-                    <td>{{ producto.categoria }}</td>
-                    <td>${{ producto.precio }}</td>
-                    <td>{{ producto.stock }}</td>
-                    <td>
-                        <a href="{% url 'Chicago:Productos_update' pk=producto.id %}"><button>Actualizar</button></a>
-                        <a href="{% url 'Chicago:Productos_delete' producto.id %}"><button>Eliminar</button></a>
-                    </td>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
                 </tr>
-            {% empty %}
-            <tr>
-                <td colspan="5">No hay datos disponibles.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
+            </thead>
+            <tbody>
+                {% for producto in object_list %}
+                    <tr>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.categoria }}</td>
+                        <td>${{ producto.precio }}</td>
+                        <td>{{ producto.stock }}</td>
+                        <td>
+                            <a href="{% url 'Chicago:Productos_update' pk=producto.id %}" class="btn btn-warning btn-sm me-2">Actualizar</a>
+                            <a href="{% url 'Chicago:Productos_delete' producto.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-muted">No hay datos disponibles.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Botón de volver al menú principal -->
+    <div class="text-center mt-4">
+        <a href="{% url 'Chicago:index' %}" class="btn btn-secondary">Volver al menú principal</a>
+    </div>
+</div>
 {% endblock contenido %}

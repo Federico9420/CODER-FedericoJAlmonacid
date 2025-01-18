@@ -1,16 +1,19 @@
 {% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
-   
-    <h1>Ventas: Detalles</h1>
-        <ul>
-            <li><strong>Cliente: </strong> {{ object.cliente }}</li>
-            <li><strong>Producto: </strong> {{ object.producto }}</li>
-            <li><strong>Cantidad: </strong> {{ object.cantidad }}</li>
-            <li><strong>Fecha: </strong> {{ object.fecha }}</li>
-            <li><strong>Total: </strong> {{ object.total }}</li>
-        </ul>
-        <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
-    
+    <div class="container py-5">
+        <div class="card p-4 shadow-lg">
+            <h3 class="mb-4 text-primary text-center">Detalles de la Venta</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Cliente:</strong> {{ object.cliente }}</li>
+                <li class="list-group-item"><strong>Producto:</strong> {{ object.producto }}</li>
+                <li class="list-group-item"><strong>Cantidad:</strong> {{ object.cantidad }}</li>
+                <li class="list-group-item"><strong>Fecha:</strong> {{ object.fecha }}</li>
+                <li class="list-group-item"><strong>Total:</strong> ${{ object.total }}</li>
+            </ul>
+            <div class="mt-4 text-center">
+                <a href="{% url 'Chicago:index' %}" class="btn btn-secondary btn-lg">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
 {% endblock contenido %}

@@ -1,12 +1,18 @@
-
 {% extends 'Chicago/base.html' %}
+
 {% block contenido %}
-    <h1>Productos: Modificación de stock</h1>
-    <h1>¿Estás seguro que deseas eliminar "{{ object }}"?</h1>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Sí, eliminar</button>
-    </form>
-    <br>
-    <a href="{% url 'Chicago:Productos_list' %}"><button>Volver</button></a>
+    <div class="container py-5">
+        <div class="card p-4 shadow-lg text-center">
+            <h3 class="mb-4 text-danger">¿Estás seguro que deseas eliminar <strong>"{{ object }}"</strong>?</h3>
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg w-100 mb-3">
+                    Sí, eliminar
+                </button>
+            </form>
+            <a href="{% url 'Chicago:Productos_list' %}" class="btn btn-secondary btn-lg w-100">
+                Volver
+            </a>
+        </div>
+    </div>
 {% endblock contenido %}

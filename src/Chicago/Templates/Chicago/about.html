@@ -1,18 +1,25 @@
-
 {% extends 'Chicago/base.html' %}
 {% load static %}
+
 {% block contenido %}
-    <h1>Acerca de nosotros</h1>
-    <img src="{% static 'Chicago/img/file.png' %}" alt="imagen" height="200px">
-    <p> Estilo, tendencia y calidad es nuestro lema.</p>
-    <p>Estamos ubicados en Laserre 459, Rio Grande, Tierra del fuego.</p>
-    <p>Comunicate con nosotros al +5492964-628695</p>
-    <p>O visitanos en nuestro 
-        <a href="https://www.instagram.com/chicas.go24/" target="_blank">Instagram</a>
-    </p>
-    <p>Te esperamos!</p>
+<div class="container py-5">
+    <h1 class="text-center mb-4">Acerca de nosotros</h1>
+
+    <div class="text-center mb-4">
+        <img src="{% static 'Chicago/img/file.png' %}" alt="imagen" class="img-fluid rounded" height="200px">
+    </div>
+
+    <p class="lead text-center">Estilo, tendencia y calidad es nuestro lema.</p>
     
-    
-    <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver al menú principal</button></a>
+    <div class="text-center mb-3">
+        <p>Estamos ubicados en <strong>Laserre 459, Rio Grande, Tierra del Fuego.</strong></p>
+        <p>Comunicate con nosotros al <strong>+5492964-628695</strong></p>
+    </div>
+
+    <div class="text-center mb-3">
+        <p>O visitanos en nuestro <a href="https://www.instagram.com/chicas.go24/" target="_blank" class="btn btn-outline-primary">Instagram</a></p>
+    </div>
+
+    <p class="text-center">¡Te esperamos!</p>
+</div>
 {% endblock contenido %}

@@ -1,15 +1,16 @@
 {% extends 'Chicago/Base.html' %}
 
 {% block contenido %}
-   
-    <h1>Ventas: Detalles</h1>
-        <ul>
-            <li><strong>nombre: </strong> {{ object.nombre}}</li>
-            <li><strong>email: </strong> {{ object.email}}</li>
-            <li><strong>telefono: </strong> {{ object.telefono}}</li>
-            
+    <div class="container mt-5">
+        <h1>Detalles de la Venta</h1>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Nombre:</strong> {{ object.nombre }}</li>
+            <li class="list-group-item"><strong>Email:</strong> {{ object.email }}</li>
+            <li class="list-group-item"><strong>Teléfono:</strong> {{ object.telefono }}</li>
         </ul>
-        <br>
-    <a href="{% url 'Chicago:index' %}"><button>Volver a la pagina principal</button></a>
-    
+
+        <div class="mt-4">
+            <a href="{% url 'Chicago:index' %}" class="btn btn-secondary">Volver al Menú Principal</a>
+        </div>
+    </div>
 {% endblock contenido %}

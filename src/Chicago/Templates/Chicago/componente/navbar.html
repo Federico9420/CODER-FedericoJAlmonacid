@@ -1,0 +1,27 @@
+<!-- Responsive navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="#!">Chic♀go!</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Chicago:index' %}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Chicago:Ventas_list' %}">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Chicago:Productos_list' %}">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Chicago:Clientes_list' %}">Clientes</a></li>
+                    <li class="nav-item">
+                        <form action="{% url 'Chicago:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="nav-link" type="submit">Logout</button>    
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'Chicago:login' %}">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Chicago:about' %}">About Us</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+ 
